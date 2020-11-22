@@ -8,18 +8,63 @@
 import SwiftUI
 
 struct SplashView: View {
-    @State private var isActive = false
-    static let symbolColor = Color(red: 79.0 / 255, green: 79.0 / 255, blue: 191.0 / 255)
-    
+    let screenWidth = UIScreen.main.bounds.width
+    let screenHeight = UIScreen.main.bounds.height
+
     var body: some View {
         ZStack {
+            GeometryReader { geometry in
+                Path { path in
+                    path.addLines([
+                        CGPoint(x: 0, y: 0),
+                        CGPoint(x: screenWidth, y: 0),
+                        CGPoint(x: screenWidth, y: screenHeight / 3 * 2),
+                        CGPoint(x: 0, y: screenHeight / 3),
+                    ])
+                }
+                .fill(Color.pink).opacity(0.7)
+                
+                Path { path in
+                    path.addLines([
+                        CGPoint(x: 0, y: 0),
+                        CGPoint(x: screenWidth, y: 0),
+                        CGPoint(x: screenWidth, y: screenHeight / 3),
+                        CGPoint(x: 0, y: screenHeight / 3 * 2),
+                    ])
+                }
+                .fill(Color.orange).opacity(0.7)
+            }
+            .edgesIgnoringSafeArea(.all)
+            
             VStack {
-                Text(/*@START_MENU_TOKEN@*/"Board Game"/*@END_MENU_TOKEN@*/)
-                    .font(.largeTitle)
-                    .bold()
-                Text("Scorer")
-                    .font(.largeTitle)
-                    .bold()
+                Spacer()
+                    .frame(height: screenHeight / 4)
+                VStack {
+                    Text("Board Game")
+                        .font(.largeTitle)
+                        .foregroundColor(.white)
+                        .bold()
+                    Text("Scorer")
+                        .font(.largeTitle)
+                        .bold()
+                        .foregroundColor(.white)
+                }
+                Spacer()
+                    .frame(height: screenHeight / 2)
+                HStack {
+                    Text("a")
+                        .font(.subheadline)
+                        .foregroundColor(.black)
+                    Text("BigEgg")
+                        .font(.subheadline)
+                        .bold()
+                        .foregroundColor(.black)
+                    Text("product")
+                        .font(.subheadline)
+                        .foregroundColor(.black)
+                }
+                Spacer()
+                    .frame(height: 20)
             }
         }
     }
