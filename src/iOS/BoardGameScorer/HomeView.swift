@@ -12,7 +12,7 @@ struct HomeView: View {
     
     var body: some View {
         TabView(selection: $selection) {
-            PlaysView()
+            PlaysHomeView()
                 .tabItem {
                     selection == TabType.Plays ?
                         Image(systemName: "play.fill") :
@@ -21,7 +21,7 @@ struct HomeView: View {
                 }
                 .tag(TabType.Plays)
 
-            ProfileView()
+            ProfileHomeView()
                 .tabItem {
                     selection == TabType.Profile ?
                         Image(systemName: "person.fill") :
