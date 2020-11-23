@@ -38,28 +38,27 @@ struct SplashView: View {
             
             VStack {
                 Spacer()
-                    .frame(height: screenHeight / 4)
+                    .frame(height: screenHeight / 5)
                 VStack {
                     Text("Board Game")
-                        .font(.largeTitle)
+                        .font(.system(size: 55.0, weight: .regular, design: .rounded))
                         .foregroundColor(.white)
                         .bold()
                     Text("Scorer")
-                        .font(.largeTitle)
+                        .font(.system(size: 55.0, weight: .regular, design: .rounded))
                         .bold()
                         .foregroundColor(.white)
                 }
                 Spacer()
-                    .frame(height: screenHeight / 2)
                 HStack {
-                    Text("a")
+                    Text("A")
                         .font(.subheadline)
                         .foregroundColor(.black)
                     Text("BigEgg")
                         .font(.subheadline)
                         .bold()
                         .foregroundColor(.black)
-                    Text("product")
+                    Text("Product")
                         .font(.subheadline)
                         .foregroundColor(.black)
                 }
