@@ -30,7 +30,6 @@ struct HomeView: View {
                 }
                 .tag(TabType.Profile)
         }
-        .font(.headline)
     }
 }
 
