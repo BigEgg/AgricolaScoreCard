@@ -12,6 +12,7 @@
 		101D1C26256B424300B8E103 /* PlaysHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101D1C25256B424300B8E103 /* PlaysHomeView.swift */; };
 		101D1C34256B9D0700B8E103 /* LocalPlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101D1C33256B9D0700B8E103 /* LocalPlayersView.swift */; };
 		101D1C39256BA65200B8E103 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101D1C38256BA65200B8E103 /* SettingView.swift */; };
+		101D1C60256CAD6600B8E103 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101D1C5F256CAD6600B8E103 /* AvatarView.swift */; };
 		102CB328256A4461007165BD /* BoardGameScorerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102CB327256A4461007165BD /* BoardGameScorerApp.swift */; };
 		102CB32A256A4461007165BD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102CB329256A4461007165BD /* ContentView.swift */; };
 		102CB32C256A4461007165BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 102CB32B256A4461007165BD /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 		101D1C25256B424300B8E103 /* PlaysHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaysHomeView.swift; sourceTree = "<group>"; };
 		101D1C33256B9D0700B8E103 /* LocalPlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPlayersView.swift; sourceTree = "<group>"; };
 		101D1C38256BA65200B8E103 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		101D1C5F256CAD6600B8E103 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		102CB324256A4461007165BD /* BoardGameScorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoardGameScorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		102CB327256A4461007165BD /* BoardGameScorerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardGameScorerApp.swift; sourceTree = "<group>"; };
 		102CB329256A4461007165BD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 		101D1C19256B41FF00B8E103 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				101D1C56256CAAD100B8E103 /* LocalPlayers */,
 				101D1C33256B9D0700B8E103 /* LocalPlayersView.swift */,
 				101D1C1A256B422F00B8E103 /* ProfileHomeView.swift */,
 				101D1C38256BA65200B8E103 /* SettingView.swift */,
@@ -112,6 +115,14 @@
 				102CB329256A4461007165BD /* ContentView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		101D1C56256CAAD100B8E103 /* LocalPlayers */ = {
+			isa = PBXGroup;
+			children = (
+				101D1C5F256CAD6600B8E103 /* AvatarView.swift */,
+			);
+			path = LocalPlayers;
 			sourceTree = "<group>";
 		};
 		102CB31B256A4461007165BD = {
@@ -302,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				102CB32A256A4461007165BD /* ContentView.swift in Sources */,
+				101D1C60256CAD6600B8E103 /* AvatarView.swift in Sources */,
 				101D1C14256A4E5300B8E103 /* HomeView.swift in Sources */,
 				101D1C1B256B422F00B8E103 /* ProfileHomeView.swift in Sources */,
 				102CB328256A4461007165BD /* BoardGameScorerApp.swift in Sources */,
