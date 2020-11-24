@@ -12,7 +12,7 @@ struct PlayerRow: View {
     
     var body: some View {
         HStack {
-            AvatarView()
+            AvatarView(firstChar: player.firstChar)
             Text(player.name)
             Spacer()
         }
@@ -25,6 +25,7 @@ struct PlayerRow_Previews: PreviewProvider {
         Group {
             PlayerRow(player: Player.previewData[0])
             PlayerRow(player: Player.previewData[1])
+                .environment(\.colorScheme, .dark)
         }
         .previewLayout(.fixed(width: 300, height: 70))
     }
