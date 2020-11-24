@@ -22,8 +22,16 @@ struct LocalPlayersView: View {
 
 struct LocalPlayersView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            LocalPlayersView()
+        Group {
+            NavigationView {
+                LocalPlayersView()
+            }
+            .environment(\.colorScheme, .light)
+            
+            NavigationView {
+                LocalPlayersView()
+            }
+            .environment(\.colorScheme, .dark)
         }
         .environmentObject(UserData())
     }
