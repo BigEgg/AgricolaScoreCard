@@ -12,6 +12,7 @@ struct BoardGameScorerApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(UserData())
         }
     }
 }

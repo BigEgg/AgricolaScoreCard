@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct LocalPlayersView: View {
+    @EnvironmentObject var userData: UserData
+    
     var body: some View {
         List {
+            ForEach(userData.players.sorted { $0.name < $1.name }) { player in
+                PlayerRow(player: player)
+            }
         }
         .navigationBarTitle("Local Players", displayMode: .inline)
     }
@@ -20,5 +25,6 @@ struct LocalPlayersView_Previews: PreviewProvider {
         NavigationView {
             LocalPlayersView()
         }
+        .environmentObject(UserData())
     }
 }
