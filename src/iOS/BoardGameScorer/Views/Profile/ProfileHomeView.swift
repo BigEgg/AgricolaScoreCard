@@ -49,13 +49,26 @@ struct SettingsRow<Destination>: View where Destination : View {
 
 struct ProfileHomeView_Previews: PreviewProvider {
     static var previews: some View {
-        TabView() {
-            ProfileHomeView()
-                .tabItem {
-                    Image(systemName: "person.fill")
-                    Text("Profile")
-                }
-                .tag(TabType.Profile)
+        Group {
+            TabView() {
+                ProfileHomeView()
+                    .tabItem {
+                        Image(systemName: "person.fill")
+                        Text("Profile")
+                    }
+                    .tag(TabType.Profile)
+            }
+            .environment(\.colorScheme, .light)
+            
+            TabView() {
+                ProfileHomeView()
+                    .tabItem {
+                        Image(systemName: "person.fill")
+                        Text("Profile")
+                    }
+                    .tag(TabType.Profile)
+            }
+            .environment(\.colorScheme, .dark)
         }
     }
 }

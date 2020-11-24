@@ -17,8 +17,16 @@ struct SettingView: View {
 
 struct SettingView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            SettingView()
+        Group {
+            NavigationView {
+                SettingView()
+            }
+            .environment(\.colorScheme, .light)
+            
+            NavigationView {
+                SettingView()
+            }
+            .environment(\.colorScheme, .dark)
         }
     }
 }

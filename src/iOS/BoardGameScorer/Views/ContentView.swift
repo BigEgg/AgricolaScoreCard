@@ -30,6 +30,23 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Group {
+            ContentView()
+                .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+                .previewDisplayName("iPhone 8")
+                .environment(\.colorScheme, .light)
+            ContentView()
+                .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+                .previewDisplayName("iPhone 8 (Dark)")
+                .environment(\.colorScheme, .dark)
+            ContentView()
+                .previewDevice(PreviewDevice(rawValue: "iPhone 12 Pro Max"))
+                .previewDisplayName("iPhone 12 Pro Max")
+                .environment(\.colorScheme, .light)
+            ContentView()
+                .previewDevice(PreviewDevice(rawValue: "iPhone 12 Pro Max"))
+                .previewDisplayName("iPhone 12 Pro Max (Dark)")
+                .environment(\.colorScheme, .dark)
+        }
     }
 }
