@@ -20,10 +20,10 @@ struct ProfileHomeView: View {
             VStack {
                 List {
                     Section {
-                        SettingsRow(destinationView: LocalPlayersView(), caption: "Local Players", image: Image.init(systemName: "person.3"), info: String(players.count))
+                        SettingMenueRow(destinationView: LocalPlayersView(), caption: "Local Players", image: Image.init(systemName: "person.3"), info: String(players.count))
                     }
                     Section {
-                        SettingsRow(destinationView: SettingView(), caption: "Settings", image: Image.init(systemName: "gearshape"))
+                        SettingMenueRow(destinationView: SettingView(), caption: "Settings", image: Image.init(systemName: "gearshape"))
                     }
                 }
                 .listStyle(GroupedListStyle())
@@ -34,7 +34,7 @@ struct ProfileHomeView: View {
     }
 }
 
-struct SettingsRow<Destination>: View where Destination : View {
+struct SettingMenueRow<Destination>: View where Destination : View {
     var destinationView: Destination
     var caption: String
     var image: Image
