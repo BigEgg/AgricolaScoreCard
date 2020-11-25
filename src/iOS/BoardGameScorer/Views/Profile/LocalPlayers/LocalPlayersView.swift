@@ -15,10 +15,16 @@ struct LocalPlayersView: View {
         animation: .default)
     private var players: FetchedResults<Player>
     
+    @EnvironmentObject var userData: UserData;
+    
     var body: some View {
+        let uuid = UUID(uuidString: userData.userId)
+        
         List {
             ForEach(players) { player in
-                PlayerRow(player: player)
+                if player.id != uuid {
+                    PlayerRow(player: player)
+                }
             }
         }
         .navigationBarTitle("Local Players", displayMode: .inline)
@@ -39,5 +45,6 @@ struct LocalPlayersView_Previews: PreviewProvider {
             .environment(\.colorScheme, .dark)
         }
         .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        .environmentObject(UserData.preview)
     }
 }
