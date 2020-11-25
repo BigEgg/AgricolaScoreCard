@@ -114,7 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				101D1C56256CAAD100B8E103 /* LocalPlayers */,
-				101D1C33256B9D0700B8E103 /* LocalPlayersView.swift */,
 				101D1C1A256B422F00B8E103 /* ProfileHomeView.swift */,
 				101D1C38256BA65200B8E103 /* SettingView.swift */,
 			);
@@ -145,6 +144,7 @@
 		101D1C56256CAAD100B8E103 /* LocalPlayers */ = {
 			isa = PBXGroup;
 			children = (
+				101D1C33256B9D0700B8E103 /* LocalPlayersView.swift */,
 				101D1C57256CAAE700B8E103 /* PlayerRow.swift */,
 				101D1C5F256CAD6600B8E103 /* AvatarView.swift */,
 			);
