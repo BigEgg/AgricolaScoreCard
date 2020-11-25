@@ -18,6 +18,9 @@ struct ProfileHomeView: View {
     var body: some View {
         NavigationView {
             VStack {
+                ProfileHeaderView(player: players[0])
+                    .padding(.horizontal)
+                
                 List {
                     Section {
                         SettingMenueRow(destinationView: LocalPlayersView(), caption: "Local Players", image: Image.init(systemName: "person.3"), info: String(players.count))
@@ -30,9 +33,35 @@ struct ProfileHomeView: View {
             }
             .navigationViewStyle(StackNavigationViewStyle())
             .navigationBarTitle("Profile")
+            .navigationBarHidden(true)
         }
     }
 }
+
+struct ProfileHeaderView: View {
+    var player: Player
+    
+    var body: some View {
+        HStack {
+            ZStack {
+                Circle()
+                    .fill(Color(UIColor.systemGray2))
+                    .frame(width: 75, height: 75)
+                    .overlay(
+                        Circle().stroke(Color.white, lineWidth: 4))
+                    .shadow(radius: 10)
+                Text(player.firstChar)
+            }
+            VStack {
+                Text(player.name!)
+            }
+            .padding(.leading)
+            Spacer()
+        }
+        .frame(height: 100)
+    }
+}
+
 
 struct SettingMenueRow<Destination>: View where Destination : View {
     var destinationView: Destination
@@ -42,16 +71,14 @@ struct SettingMenueRow<Destination>: View where Destination : View {
     
     var body: some View {
         NavigationLink(destination: destinationView) {
-            VStack {
-                HStack {
-                    image
-                        .foregroundColor(Color(UIColor.systemBlue))
-                        .frame(width: 40, height: 40)
-                    Text(caption)
-                    Spacer()
-                    if !info.isEmpty {
-                        Text(info)
-                    }
+            HStack {
+                image
+                    .foregroundColor(Color(UIColor.systemBlue))
+                    .frame(width: 40, height: 40)
+                Text(caption)
+                Spacer()
+                if !info.isEmpty {
+                    Text(info)
                 }
             }
         }
