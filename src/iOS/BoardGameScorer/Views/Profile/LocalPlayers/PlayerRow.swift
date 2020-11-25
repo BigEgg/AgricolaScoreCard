@@ -16,6 +16,7 @@ struct PlayerRow: View {
             Text(player.name!)
             Spacer()
         }
+        .background(Color(UIColor.systemBackground))
     }
 }
 
