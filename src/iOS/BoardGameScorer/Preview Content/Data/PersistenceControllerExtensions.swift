@@ -27,7 +27,7 @@ extension PersistenceController {
     
     private static func mockData(viewContext: NSManagedObjectContext) {
         let player1 = Player(context: viewContext)
-        player1.id = UUID()
+        player1.id = UUID(uuidString: "bcc340ea-2ed9-11eb-adc1-0242ac120002")
         player1.name = "BigEgg"
         let player3 = Player(context: viewContext)
         player3.id = UUID()

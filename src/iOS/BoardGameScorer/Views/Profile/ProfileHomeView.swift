@@ -8,22 +8,22 @@
 import SwiftUI
 
 struct ProfileHomeView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-
     @FetchRequest(
         sortDescriptors: [],
         animation: .default)
     private var players: FetchedResults<Player>
     
+    @EnvironmentObject var userData: UserData;
+    
     var body: some View {
         NavigationView {
             VStack {
-                ProfileHeaderView(player: players[0])
+                ProfileHeaderView(players: players, userId: userData.userId)
                     .padding(.horizontal)
                 
                 List {
                     Section {
-                        SettingMenueRow(destinationView: LocalPlayersView(), caption: "Local Players", image: Image.init(systemName: "person.3"), info: String(players.count))
+                        SettingMenueRow(destinationView: LocalPlayersView(), caption: "Local Players", image: Image.init(systemName: "person.3"), info: String(players.count - 1))
                     }
                     Section {
                         SettingMenueRow(destinationView: SettingView(), caption: "Settings", image: Image.init(systemName: "gearshape"))
@@ -39,9 +39,12 @@ struct ProfileHomeView: View {
 }
 
 struct ProfileHeaderView: View {
-    var player: Player
-    
+    var players: FetchedResults<Player>
+    var userId: String
+        
     var body: some View {
+        let user = players.first(where: { $0.id == UUID(uuidString: userId) })!
+        
         HStack {
             ZStack {
                 Circle()
@@ -50,10 +53,10 @@ struct ProfileHeaderView: View {
                     .overlay(
                         Circle().stroke(Color.white, lineWidth: 4))
                     .shadow(radius: 10)
-                Text(player.firstChar)
+                Text(user.firstChar)
             }
             VStack {
-                Text(player.name!)
+                Text(user.name!)
             }
             .padding(.leading)
             Spacer()
@@ -109,5 +112,6 @@ struct ProfileHomeView_Previews: PreviewProvider {
             .environment(\.colorScheme, .dark)
         }
         .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        .environmentObject(UserData.preview)
     }
 }

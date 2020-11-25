@@ -15,6 +15,7 @@ struct BoardGameScorerApp: App {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(UserData())
         }
     }
 }
