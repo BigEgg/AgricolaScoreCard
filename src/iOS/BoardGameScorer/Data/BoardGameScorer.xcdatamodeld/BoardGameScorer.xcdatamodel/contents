@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17510.1" systemVersion="19H15" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Game" representedClassName="Game" syncable="YES" codeGenerationType="class">
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="imageUrl" attributeType="URI"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="newPlaySetting" attributeType="String"/>
+        <attribute name="systemId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="plays" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="Play" inverseName="game" inverseEntity="Play"/>
+    </entity>
+    <entity name="Play" representedClassName="Play" syncable="YES" codeGenerationType="class">
+        <attribute name="gameDetails" optional="YES" attributeType="String"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="systemId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="time" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="game" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Game" inverseName="plays" inverseEntity="Game"/>
+        <relationship name="players" optional="YES" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="Player" inverseName="plays" inverseEntity="Player"/>
+    </entity>
+    <entity name="Player" representedClassName="Player" syncable="YES" codeGenerationType="class">
+        <attribute name="avatarUrl" optional="YES" attributeType="URI"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="systemId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="plays" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="Play" inverseName="players" inverseEntity="Play"/>
+    </entity>
+    <elements>
+        <element name="Player" positionX="424.26171875" positionY="102.59375" width="128" height="118"/>
+        <element name="Game" positionX="74.9609375" positionY="100.171875" width="128" height="133"/>
+        <element name="Play" positionX="248.046875" positionY="99.79296875" width="128" height="133"/>
+    </elements>
+</model>

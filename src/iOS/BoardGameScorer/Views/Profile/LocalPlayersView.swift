@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct LocalPlayersView: View {
-    @EnvironmentObject var userData: UserData
+    @Environment(\.managedObjectContext) private var viewContext
+
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Player.name, ascending: true)],
+        animation: .default)
+    private var players: FetchedResults<Player>
     
     var body: some View {
         List {
-            ForEach(userData.players.sorted { $0.name < $1.name }) { player in
+            ForEach(players) { player in
                 PlayerRow(player: player)
             }
         }
@@ -33,6 +38,6 @@ struct LocalPlayersView_Previews: PreviewProvider {
             }
             .environment(\.colorScheme, .dark)
         }
-        .environmentObject(UserData())
+        .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

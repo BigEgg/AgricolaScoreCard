@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct ProfileHomeView: View {
-    @EnvironmentObject var userData: UserData
+    @Environment(\.managedObjectContext) private var viewContext
+
+    @FetchRequest(
+        sortDescriptors: [],
+        animation: .default)
+    private var players: FetchedResults<Player>
     
     var body: some View {
         NavigationView {
             VStack {
                 List {
                     Section {
-                        SettingsRow(destinationView: LocalPlayersView(), caption: "Local Players", image: Image.init(systemName: "person.3"), info: String(userData.players.count))
+                        SettingsRow(destinationView: LocalPlayersView(), caption: "Local Players", image: Image.init(systemName: "person.3"), info: String(players.count))
                     }
                     Section {
                         SettingsRow(destinationView: SettingView(), caption: "Settings", image: Image.init(systemName: "gearshape"))
@@ -76,6 +81,6 @@ struct ProfileHomeView_Previews: PreviewProvider {
             }
             .environment(\.colorScheme, .dark)
         }
-        .environmentObject(UserData())
+        .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

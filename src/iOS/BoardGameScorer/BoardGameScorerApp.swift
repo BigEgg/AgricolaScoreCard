@@ -9,10 +9,12 @@ import SwiftUI
 
 @main
 struct BoardGameScorerApp: App {
+    let persistenceController = PersistenceController.shared
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(UserData())
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }
