@@ -14,9 +14,13 @@ class UserData: ObservableObject {
         }
     }
     
-    init(userId: String = "") {
-        self.userId = userId.isEmpty ?
-            UserDefaults.standard.string(forKey: "user_id") ?? "" :
-            userId
+    init(userId: String = "", forceEmpty: Bool = false) {
+        if forceEmpty {
+            self.userId = ""
+        } else {
+            self.userId = userId.isEmpty ?
+                UserDefaults.standard.string(forKey: "user_id") ?? "" :
+                userId
+        }
     }
 }

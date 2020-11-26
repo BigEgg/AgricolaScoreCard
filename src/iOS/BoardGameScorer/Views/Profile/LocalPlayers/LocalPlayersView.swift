@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct LocalPlayersView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Player.name, ascending: true)],
         animation: .default)
