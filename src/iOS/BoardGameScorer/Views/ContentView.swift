@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ContentView: View {
     @State private var isActive: Bool = false
@@ -77,7 +78,7 @@ struct WelcomeBackPopupView: View {
                 Text(user.name!)
             }.padding()
         }
-        .frame(width: 200, height: 75)
+        .frame(width: 250, height: 75)
         .cornerRadius(20).shadow(radius: 20)
         .opacity(0.8)
     }
@@ -108,6 +109,18 @@ struct AskNamePopupView: View {
                         RoundedRectangle(cornerRadius: 6)
                             .stroke(Color(UIColor.systemBlue).opacity(0.5), lineWidth: 2)
                     )
+                    .onReceive(Just(self.name)) { inputValue in
+                        // With a little help from https://bit.ly/2W1Ljzp
+                        if inputValue.count > 20 {
+                            self.name.removeLast()
+                        }
+                    }
+                HStack {
+                    Spacer()
+                    Text("\(self.name.count )/20")
+                        .font(.footnote)
+                        .opacity(Double(self.name.count) / 20.0)
+                }
                 Spacer()
                 Button(action: {
                     let user = Player(context: viewContext)
