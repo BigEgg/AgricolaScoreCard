@@ -21,12 +21,12 @@ struct HomeView: View {
                 }
                 .tag(TabType.Plays)
 
-            ProfileHomeView()
+            MeHomeView()
                 .tabItem {
                     selection == TabType.Profile ?
                         Image(systemName: "person.fill") :
                         Image(systemName: "person")
-                    Text("Profile")
+                    Text("Me")
                 }
                 .tag(TabType.Profile)
         }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProfileHomeView: View {
+struct MeHomeView: View {
     @FetchRequest(
         sortDescriptors: [],
         animation: .default)
@@ -92,7 +92,7 @@ struct ProfileHomeView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             TabView() {
-                ProfileHomeView()
+                MeHomeView()
                     .tabItem {
                         Image(systemName: "person.fill")
                         Text("Profile")
@@ -102,7 +102,7 @@ struct ProfileHomeView_Previews: PreviewProvider {
             .environment(\.colorScheme, .light)
             
             TabView() {
-                ProfileHomeView()
+                MeHomeView()
                     .tabItem {
                         Image(systemName: "person.fill")
                         Text("Profile")

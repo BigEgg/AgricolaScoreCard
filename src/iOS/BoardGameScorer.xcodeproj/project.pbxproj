@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		101D1C14256A4E5300B8E103 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101D1C13256A4E5300B8E103 /* HomeView.swift */; };
-		101D1C1B256B422F00B8E103 /* ProfileHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101D1C1A256B422F00B8E103 /* ProfileHomeView.swift */; };
+		101D1C1B256B422F00B8E103 /* MeHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101D1C1A256B422F00B8E103 /* MeHomeView.swift */; };
 		101D1C26256B424300B8E103 /* PlaysHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101D1C25256B424300B8E103 /* PlaysHomeView.swift */; };
 		101D1C34256B9D0700B8E103 /* LocalPlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101D1C33256B9D0700B8E103 /* LocalPlayersView.swift */; };
 		101D1C39256BA65200B8E103 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101D1C38256BA65200B8E103 /* SettingView.swift */; };
@@ -51,7 +51,7 @@
 
 /* Begin PBXFileReference section */
 		101D1C13256A4E5300B8E103 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		101D1C1A256B422F00B8E103 /* ProfileHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHomeView.swift; sourceTree = "<group>"; };
+		101D1C1A256B422F00B8E103 /* MeHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHomeView.swift; sourceTree = "<group>"; };
 		101D1C25256B424300B8E103 /* PlaysHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaysHomeView.swift; sourceTree = "<group>"; };
 		101D1C33256B9D0700B8E103 /* LocalPlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPlayersView.swift; sourceTree = "<group>"; };
 		101D1C38256BA65200B8E103 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
@@ -114,20 +114,20 @@
 			path = Plays;
 			sourceTree = "<group>";
 		};
-		101D1C19256B41FF00B8E103 /* Profile */ = {
+		101D1C19256B41FF00B8E103 /* Me */ = {
 			isa = PBXGroup;
 			children = (
 				101D1C56256CAAD100B8E103 /* LocalPlayers */,
-				101D1C1A256B422F00B8E103 /* ProfileHomeView.swift */,
+				101D1C1A256B422F00B8E103 /* MeHomeView.swift */,
 				101D1C38256BA65200B8E103 /* SettingView.swift */,
 			);
-			path = Profile;
+			path = Me;
 			sourceTree = "<group>";
 		};
 		101D1C40256CA3E200B8E103 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				101D1C19256B41FF00B8E103 /* Profile */,
+				101D1C19256B41FF00B8E103 /* Me */,
 				101D1C18256B41F500B8E103 /* Plays */,
 				102CB358256A497E007165BD /* SplashView.swift */,
 				101D1C13256A4E5300B8E103 /* HomeView.swift */,
@@ -390,7 +390,7 @@
 				101D1D45256DD8B700B8E103 /* Player.swift in Sources */,
 				101D1C52256CAA2500B8E103 /* StringExtension.swift in Sources */,
 				101D1D50256E12F400B8E103 /* UserData.swift in Sources */,
-				101D1C1B256B422F00B8E103 /* ProfileHomeView.swift in Sources */,
+				101D1C1B256B422F00B8E103 /* MeHomeView.swift in Sources */,
 				102CB328256A4461007165BD /* BoardGameScorerApp.swift in Sources */,
 				101D1C26256B424300B8E103 /* PlaysHomeView.swift in Sources */,
 				101D1D55256E19CE00B8E103 /* UserDataExtension.swift in Sources */,
