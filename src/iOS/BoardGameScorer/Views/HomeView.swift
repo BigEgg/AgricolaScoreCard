@@ -41,6 +41,8 @@ struct HomeView_Previews: PreviewProvider {
             HomeView()
                 .environment(\.colorScheme, .dark)
         }
+        .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        .environmentObject(UserData.preview)
     }
 }
 
