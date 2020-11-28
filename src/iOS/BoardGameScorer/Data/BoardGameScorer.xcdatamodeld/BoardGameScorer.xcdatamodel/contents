@@ -4,17 +4,44 @@
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="imageUrl" attributeType="URI"/>
         <attribute name="name" attributeType="String"/>
-        <attribute name="newPlaySetting" attributeType="String"/>
         <attribute name="systemId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <relationship name="plays" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="Play" inverseName="game" inverseEntity="Play"/>
+        <relationship name="combinations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GameCombination" inverseName="baseGame" inverseEntity="GameCombination"/>
+        <relationship name="expansions" optional="YES" toMany="YES" deletionRule="Deny" ordered="YES" destinationEntity="GameExpansions" inverseName="baseGame" inverseEntity="GameExpansions"/>
+    </entity>
+    <entity name="GameCombination" representedClassName="GameCombination" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="include" optional="YES" attributeType="String"/>
+        <attribute name="systemId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="baseGame" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Game" inverseName="combinations" inverseEntity="Game"/>
+        <relationship name="newPlaySettings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NewPlaySetting" inverseName="gameCombination" inverseEntity="NewPlaySetting"/>
+        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Play" inverseName="gameCombination" inverseEntity="Play"/>
+    </entity>
+    <entity name="GameExpansions" representedClassName="GameExpansions" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="imageUrl" optional="YES" attributeType="URI"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="systemId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="baseGame" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Game" inverseName="expansions" inverseEntity="Game"/>
+    </entity>
+    <entity name="NewPlaySetting" representedClassName="NewPlaySetting" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="map" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="order" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="sectionName" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="systemId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="gameCombination" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GameCombination" inverseName="newPlaySettings" inverseEntity="GameCombination"/>
+        <relationship name="playResults" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="PlayResult" inverseName="setting" inverseEntity="PlayResult"/>
     </entity>
     <entity name="Play" representedClassName="Play" syncable="YES" codeGenerationType="class">
-        <attribute name="gameDetails" optional="YES" attributeType="String"/>
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="systemId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="time" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="game" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Game" inverseName="plays" inverseEntity="Game"/>
-        <relationship name="players" optional="YES" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="Player" inverseName="plays" inverseEntity="Player"/>
+        <attribute name="winner" optional="YES" attributeType="String"/>
+        <attribute name="winnerPoints" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <relationship name="fields" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlayResult" inverseName="play" inverseEntity="PlayResult"/>
+        <relationship name="gameCombination" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GameCombination" inverseName="newRelationship" inverseEntity="GameCombination"/>
+        <relationship name="players" optional="YES" toMany="YES" minCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="Player" inverseName="plays" inverseEntity="Player"/>
     </entity>
     <entity name="Player" representedClassName="Player" syncable="YES" codeGenerationType="class">
         <attribute name="avatarUrl" optional="YES" attributeType="URI"/>
@@ -23,9 +50,21 @@
         <attribute name="systemId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <relationship name="plays" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="Play" inverseName="players" inverseEntity="Play"/>
     </entity>
+    <entity name="PlayResult" representedClassName="PlayResult" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="points" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="systemId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="value" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <relationship name="play" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Play" inverseName="fields" inverseEntity="Play"/>
+        <relationship name="setting" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NewPlaySetting" inverseName="playResults" inverseEntity="NewPlaySetting"/>
+    </entity>
     <elements>
-        <element name="Player" positionX="424.26171875" positionY="102.59375" width="128" height="118"/>
-        <element name="Game" positionX="74.9609375" positionY="100.171875" width="128" height="133"/>
-        <element name="Play" positionX="248.046875" positionY="99.79296875" width="128" height="133"/>
+        <element name="Player" positionX="547.94921875" positionY="293.4609375" width="128" height="118"/>
+        <element name="Game" positionX="78.80078125" positionY="100.234375" width="128" height="133"/>
+        <element name="Play" positionX="338.26171875" positionY="263.65234375" width="128" height="163"/>
+        <element name="GameExpansions" positionX="-124.30078125" positionY="100.43359375" width="128" height="118"/>
+        <element name="GameCombination" positionX="81.65234375" positionY="293.71875" width="128" height="133"/>
+        <element name="NewPlaySetting" positionX="76.6953125" positionY="488.40234375" width="128" height="163"/>
+        <element name="PlayResult" positionX="343.8671875" positionY="503.140625" width="128" height="133"/>
     </elements>
 </model>
