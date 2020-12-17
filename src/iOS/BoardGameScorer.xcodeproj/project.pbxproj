@@ -23,6 +23,7 @@
 		101D1D45256DD8B700B8E103 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101D1D44256DD8B700B8E103 /* Player.swift */; };
 		101D1D50256E12F400B8E103 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101D1D4F256E12F400B8E103 /* UserData.swift */; };
 		101D1D55256E19CE00B8E103 /* UserDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101D1D54256E19CE00B8E103 /* UserDataExtension.swift */; };
+		101D1D7B258303CB00B8E103 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101D1D7A258303CB00B8E103 /* RemoteImage.swift */; };
 		102CB328256A4461007165BD /* BoardGameScorerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102CB327256A4461007165BD /* BoardGameScorerApp.swift */; };
 		102CB32A256A4461007165BD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102CB329256A4461007165BD /* ContentView.swift */; };
 		102CB32C256A4461007165BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 102CB32B256A4461007165BD /* Assets.xcassets */; };
@@ -66,6 +67,7 @@
 		101D1D44256DD8B700B8E103 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		101D1D4F256E12F400B8E103 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		101D1D54256E19CE00B8E103 /* UserDataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataExtension.swift; sourceTree = "<group>"; };
+		101D1D7A258303CB00B8E103 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 		102CB324256A4461007165BD /* BoardGameScorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoardGameScorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		102CB327256A4461007165BD /* BoardGameScorerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardGameScorerApp.swift; sourceTree = "<group>"; };
 		102CB329256A4461007165BD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			children = (
 				101D1C19256B41FF00B8E103 /* Me */,
 				101D1C18256B41F500B8E103 /* Plays */,
+				101D1D79258303AF00B8E103 /* Shared */,
 				102CB358256A497E007165BD /* SplashView.swift */,
 				101D1C13256A4E5300B8E103 /* HomeView.swift */,
 				102CB329256A4461007165BD /* ContentView.swift */,
@@ -188,6 +191,14 @@
 				101D1D44256DD8B700B8E103 /* Player.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		101D1D79258303AF00B8E103 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				101D1D7A258303CB00B8E103 /* RemoteImage.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		102CB31B256A4461007165BD = {
@@ -388,6 +399,7 @@
 				101D1C14256A4E5300B8E103 /* HomeView.swift in Sources */,
 				101D1D16256DCAEC00B8E103 /* BoardGameScorer.xcdatamodeld in Sources */,
 				101D1D45256DD8B700B8E103 /* Player.swift in Sources */,
+				101D1D7B258303CB00B8E103 /* RemoteImage.swift in Sources */,
 				101D1C52256CAA2500B8E103 /* StringExtension.swift in Sources */,
 				101D1D50256E12F400B8E103 /* UserData.swift in Sources */,
 				101D1C1B256B422F00B8E103 /* MeHomeView.swift in Sources */,
